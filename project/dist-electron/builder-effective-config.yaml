@@ -1,0 +1,31 @@
+directories:
+  output: dist-electron
+  buildResources: build
+appId: com.taxtracker.desktop
+productName: Tax Tracker Pro
+compression: normal
+files:
+  - filter:
+      - dist/**/*
+      - electron.js
+      - package.json
+      - node_modules/**/*
+extraResources:
+  - from: dist
+    to: app
+    filter:
+      - '**/*'
+mac:
+  category: public.app-category.finance
+  target: dmg
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+electronVersion: 38.1.2
